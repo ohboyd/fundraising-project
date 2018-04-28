@@ -20,24 +20,28 @@ class Project
   end
   
   def add_funds(donation)
+    "Project #{@project} recieved a $#{donation} donation and now has $#{@funds}! This means that #{distance_to_goal}"
     @funds += donation
-    puts "Project #{@project} recieved a $#{donation} donation and now has $#{@funds}! This means that #{distance_to_goal}"
   end
   
   def sub_funds(debit)
+    "Project #{@project} lost $#{debit}. Now, #{distance_to_goal}"
     @funds -= debit
-    puts "Project #{@project} lost $#{debit}. Now, #{distance_to_goal}"
   end
   
   def distance_to_goal
     "it's $#{@target - @funds} from its goal of $#{@target}."
+    @target - @funds
   end
   
   def outstanding_funds
-    puts "We are $#{@target - @funds} from the goal!"
+    "We are $#{@target - @funds} from the goal!"
+    @target - @funds
   end
   
 end
 
-# project1 = Project.new("xxx", 50, 150)
-# project1.outstanding_funds
+if __FILE__ == $0
+  project1 = Project.new("xxx", 50, 150)
+  puts project1.add_funds(25)
+end
