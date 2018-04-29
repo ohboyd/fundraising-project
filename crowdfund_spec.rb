@@ -27,9 +27,10 @@ describe Project do
     @project.sub_funds(15).should == (100 - 15)
   end
   
-  it "has an default value of 0 for funding amount" do 
+  it "has a default value of 0 for funding amount" do 
+    
     project = Project.new("abc", nil, @initial_target)
   
-    project.funds == 0
+    project.funds.should == 0
   end
 end
